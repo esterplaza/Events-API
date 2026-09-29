@@ -19,7 +19,7 @@ def test_health_check():
 
 def test_register_user_creates_new_user():
     """Test that user registration"""
-    username = f"testuser_{int(time.time())}"
+    username = f"testuser_{int(time.time() * 1000)}"
     user_data = {
         "username": username,
         "password": "testpassword"
@@ -38,7 +38,7 @@ def test_register_user_creates_new_user():
 
 def test_login_returns_jwt_token():
     """Test that login returns jwt_token"""
-    username = f"testuser_{int(time.time())}"
+    username = f"testuser_{int(time.time() * 1000)}"
     user_data = {
         "username": username,
         "password": "testpassword"
@@ -97,7 +97,7 @@ def test_create_public_event_requires_auth_and_succeeds_with_token(auth_token):
 
 def test_double_user_registration():
     """Test double user registration"""
-    username = f"testuser_{int(time.time())}"
+    username = f"testuser_{int(time.time() * 1000)}"
     user_data = {
         "username": username,
         "password": "testpassword"
@@ -141,7 +141,7 @@ def test_create_public_event_without_token():
 
 def test_rsvp_to_public_event(auth_token):
     """Test creating an rsvp to a public event"""
-    username = f"testuser_{int(time.time())}"
+    username = f"testuser_{int(time.time() * 1000)}"
     user_data = {
         "username": username,
         "password": "testpassword"
@@ -189,7 +189,7 @@ def test_rsvp_to_public_event(auth_token):
 
 def test_rsvp_to_a_not_public_event_without_authorization(auth_token):
     """Test creating an rsvp to a not public event without authorization"""
-    username = f"testuser_{int(time.time())}"
+    username = f"testuser_{int(time.time() * 1000)}"
     user_data = {
         "username": username,
         "password": "testpassword"
