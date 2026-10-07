@@ -14,5 +14,17 @@ jobs:
       - name: check out repository code
         uses: actions/checkout@v7
 
-      
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v4
 
+      - name: Build image
+        run: docker build -t event-api:latest .
+
+      - name: Start container
+        run: docker run -d -p 5000:5000 --name event-api-container event-api:latest
+
+      - name: Wait for application
+        run: sleep 5
+
+      - name: Health check
+        run: curl --fail http://localhost:5000/api/health
