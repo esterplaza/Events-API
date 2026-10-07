@@ -78,4 +78,8 @@ jobs:
 
       - name: Wait for Render deployment
         run: sleep 30
+
+      - name: Smoke test Render deployment
+        run: |
+          curl --fail "${{ secrets.RENDER_BASE_URL }}/api/health"
           
