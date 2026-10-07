@@ -28,3 +28,15 @@ jobs:
 
       - name: Health check
         run: curl --fail http://localhost:5000/api/health
+
+      - name: Set Up Python in Runner
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Install requirements
+        run: pip install --no-cache-dir -r requirements.txt
+
+      - name: Run tests
+        run: pytest
+
